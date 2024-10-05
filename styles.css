@@ -8,7 +8,6 @@
 
 .container {
   width: 350px;
-
   position: absolute;
   /*Bastante común usar 'transform: translate(-50%, -50%);' para centrar valores absolutos*/
   transform: translate(-50%, -50%);
@@ -19,7 +18,71 @@
 /*Al llamar una id se usa '#nombreId' si es class se usa '.nameClass'*/
 
 #card {
+  position: relative;
+  /*Explicando Background radial-gradient
+  radial-gradiente(circle at x%, y%, rgb size%, rgb size%
+  x: Es la posición al plano de las x, x < 50% = izq, x > 50% = derecha
+  y: Es la posición en el plano de las y, y < 50% = arriba, y > 50% = abajo
+  ;*/
+  background: radial-gradient(circle at 50% 0%, rgb(180, 72, 180) 40%, #ffffff 35%);
   width: 100%;
   padding: 30px 20px;
-  border: 1px solid black
+  /*Explicando box.shadow: Xpx, Ypx, spread, rgb
+  spread = The last value (30px in this case): Es una manera de decirle
+  que tanto se debe difuminar 
+  */
+  box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+}
+
+#card img {
+  /*Display: block para que se centre automaticamente ya que crea algo que yo denominaria "centrado de lista"
+  en lugar de ir de izqueirda a derecha como en "display: inline", es de arriba hacia abajo*/
+  display: block;
+  width: 180px;
+  max-height: 200px;
+  /*position: relative;: es relativa el document flow */
+  position: relative;
+  margin: 20px auto;
+}
+
+.hp {
+  width: 65px;
+  background-color: #ffffff;
+  border-radius: 20px;
+  /*padding: y, x, EN PADDING el orden de los ejes del plano estan invertidos, primero 
+  son los valores verticales(5px en este caso) y los horizontales después (8px)*/
+  padding: 5px 8px;
+  /*El espacio que hay sin usar en la línea de "hp", 
+  se usará para añadir margin a la izquierda del <p>hp</p>, el tamaño será proporcional al espacio sin usar*/
+  margin-left: auto;
+}
+
+.pokeName {
+  text-align: center;
+  font-weight: 600;
+}
+
+.types {
+  display: flex;
+  justify-content: space-around;
+  /*Margin: arriba, derecha, abajo, izquierda */
+  margin: 10px 0px 10px 0px;
+}
+
+.hp span,
+.types span {
+  font-size: 15px;
+  letter-spacing: 0.4px;
+  font-weight: 600;
+}
+
+.types span {}
+
+.stats {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /*El h3 de los stats es contado como text*/
+  text-align: center;
 }
