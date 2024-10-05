@@ -8,7 +8,18 @@
 
 .container {
   width: 350px;
-  border: 1px solid black;
+
   position: absolute;
-  translate: (-50, -50);
+  /*Bastante común usar 'transform: translate(-50%, -50%);' para centrar valores absolutos*/
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+}
+
+/*Al llamar una id se usa '#nombreId' si es class se usa '.nameClass'*/
+
+#card {
+  width: 100%;
+  padding: 30px 20px;
+  border: 1px solid black
 }
