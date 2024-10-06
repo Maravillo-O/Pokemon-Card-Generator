@@ -86,3 +86,19 @@
   /*El h3 de los stats es contado como text*/
   text-align: center;
 }
+
+.stats p {
+  color: #404060;
+}
+
+#btn {
+  display: block;
+  padding: 15px 60px;
+  font-size: 18px;
+  background-color: black;
+  color: #ffffff;
+  margin: 15px auto;
+  position: relative;
+  border-radius: 20px;
+  border: none;
+}
