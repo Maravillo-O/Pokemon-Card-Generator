@@ -1,3 +1,22 @@
+const typeColor = {
+  bug: "#26de81",
+  dragon: "#ffeaa7",
+  electric: "#fed330",
+  fairy: "#FF0069",
+  fighting: "#30336b",
+  fire: "#f0932b",
+  flying: "81ecec",
+  grass: "#00b894",
+  ground: "#EFB549",
+  ghost: "#a55eea",
+  ice: "#74b9ff",
+  normal: "#95afc0",
+  poison: "#6c5ce7",
+  psychic: "#a29bfe",
+  rock: "#2d3436",
+  water: "#0190ff",
+}
+
 const api = "https://pokeapi.co/api/v2/pokemon/";
 
 const card = document.getElementById('card');
@@ -40,14 +59,10 @@ function generateCard(data) {
   //también necesitamos la img del pokémon
   const pokeFoto = data.sprites.other.dream_world.front_default;
   const pokeName = data.name;
-  const type1 = data.types[0].type.name;
 
-
-  const type2 = data.types[1].type.name;
-
-  if (!type2) {
-    type2 = "Unitype";
-  }
+  //Set theeme color
+  //typeColor [en la posición ]
+  const themecolor = typeColor[data.types[0].type.name];
   card.innerHTML = `
     
       <p class="hp">
@@ -60,8 +75,7 @@ function generateCard(data) {
       <h2 class="pokeName">${pokeName}</h2>
 
       <div class="types">
-        <span> ${type1} </span>
-        <span> ${type2}</span>
+        
       </div> <!--END-Div: types-->
 
       <div class="stats">
@@ -79,7 +93,29 @@ function generateCard(data) {
         </div>
 
       </div> 
-  `
+  `;
+  appendTypes(data.types);
+  styleCard(themecolor);
 }
 
+let appendTypes = (types) => {
+  console.log(types);
+  types.forEach((tipo) => {
+    /*Podemos crear elementos de HTML con .createElement()
+    puede ser, DIV, BUTTON, P, SPAN etc.
+    */
+    let span = document.createElement("SPAN");
+    /*.textContet es muy similar a innerText
+    en este caso lo hacemos igual al tipo(cada valor de data.types).type.name(valores del objeto de API), */
+    span.textContent = tipo.type.name;
+    /*Esto coloca el span dentro de ese contenedor en la página.
+    appendChild: es un método que se usa para agregar un nodo, en este caso, el span
+    */
+    document.querySelector('.types').appendChild(span);
+  })
+};
+
+let styleCard = ((color) => {
+  card.style.background = `radial-gradient(circle at 50% 0, ${color} 36%, #ffffff 36%)`
+})
 

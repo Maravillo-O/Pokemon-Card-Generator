@@ -24,7 +24,7 @@
   x: Es la posición al plano de las x, x < 50% = izq, x > 50% = derecha
   y: Es la posición en el plano de las y, y < 50% = arriba, y > 50% = abajo
   ;*/
-  background: radial-gradient(circle at 50% 0%, rgb(180, 72, 180) 40%, #ffffff 35%);
+
   width: 100%;
   padding: 30px 20px;
   /*Explicando box.shadow: Xpx, Ypx, spread, rgb
@@ -47,7 +47,7 @@
 }
 
 .hp {
-  width: 65px;
+  width: 70px;
   background-color: #ffffff;
   border-radius: 20px;
   /*padding: y, x, EN PADDING el orden de los ejes del plano estan invertidos, primero 
@@ -66,7 +66,7 @@
 .types {
   display: flex;
   justify-content: space-around;
-  /*Margin: arriba, derecha, abajo, izquierda */
+  /*Margin: top, right, bottom, left */
   margin: 10px 0px 10px 0px;
 }
 
@@ -77,7 +77,10 @@
   font-weight: 600;
 }
 
-.types span {}
+.types span {
+  /*Padding: eje Y, eje X*/
+  padding: 5px 10px
+}
 
 .stats {
   display: flex;
@@ -101,4 +104,9 @@
   position: relative;
   border-radius: 20px;
   border: none;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgba(255, 70, 70, 0.68);
+  }
 }
