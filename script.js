@@ -61,7 +61,9 @@ function generateCard(data) {
   const pokeName = data.name;
 
   //Set theeme color
-  //typeColor [en la posición ]
+  /*Esta viendo el nombre del type dentro de el objeto en la posición [0]
+  Y a su vez el nombre que sea resultante de este se buscara en el objeto typeColor, si existe 
+  se asignara a 'themecolor', sino declarara undefined*/
   const themecolor = typeColor[data.types[0].type.name];
   card.innerHTML = `
     
@@ -116,6 +118,12 @@ let appendTypes = (types) => {
 };
 
 let styleCard = ((color) => {
+  /*Explicando Background radial-gradient
+  radial-gradiente(circle at x%, y%, rgb size%, rgb size%
+  x: Es la posición al plano de las x, x < 50% = izq, x > 50% = derecha
+  y: Es la posición en el plano de las y, y < 50% = arriba, y > 50% = abajo
+  ;*/
+  //Le decimos que el background de la carta va a ser igual a este css debajo:
   card.style.background = `radial-gradient(circle at 50% 0, ${color} 36%, #ffffff 36%)`
 })
 

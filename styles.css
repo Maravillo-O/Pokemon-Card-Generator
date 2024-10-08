@@ -19,11 +19,6 @@
 
 #card {
   position: relative;
-  /*Explicando Background radial-gradient
-  radial-gradiente(circle at x%, y%, rgb size%, rgb size%
-  x: Es la posición al plano de las x, x < 50% = izq, x > 50% = derecha
-  y: Es la posición en el plano de las y, y < 50% = arriba, y > 50% = abajo
-  ;*/
 
   width: 100%;
   padding: 30px 20px;
